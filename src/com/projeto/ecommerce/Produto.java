@@ -64,4 +64,12 @@ public abstract class Produto {
     }
 
     public abstract String descricao();
+
+    public boolean esgotado() {
+        return quantidadeEstoque == 0;
+    }
+
+    public boolean ultimasUnidades() {
+        return quantidadeEstoque >= 1 && quantidadeEstoque <= 3;
+    }
 }
