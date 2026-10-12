@@ -72,4 +72,12 @@ public abstract class Produto {
     public boolean ultimasUnidades() {
         return quantidadeEstoque >= 1 && quantidadeEstoque <= 3;
     }
+
+    public void adicionarEstoque(int quantidade) {
+        this.quantidadeEstoque += quantidade;
+    }
+
+    public void registrarVenda(int quantidade) {
+        this.quantidadeEstoque -= quantidade;
+    }
 }

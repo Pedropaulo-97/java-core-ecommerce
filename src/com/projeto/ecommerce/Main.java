@@ -20,5 +20,11 @@ public class Main {
                 avaliavel.avaliar(5);
             }
         }
+
+        produtos[1].adicionarEstoque(5);
+        System.out.println("Estoque ADI2000: " + produtos[1].getQuantidadeEstoque());
+
+        produtos[3].registrarVenda(2);
+        System.out.println("Estoque Camisa Dry: " + produtos[3].getQuantidadeEstoque());
     }
 }
