@@ -1,6 +1,8 @@
 package com.projeto.ecommerce;
 
 
+import javax.swing.*;
+
 public abstract class Produto {
 
     private String marca;
@@ -74,10 +76,20 @@ public abstract class Produto {
     }
 
     public void adicionarEstoque(int quantidade) {
-        this.quantidadeEstoque += quantidade;
+        if (quantidade <= 0) {
+            System.out.println("Quantidade inválida");
+        } else {
+            quantidadeEstoque += quantidade;
+        }
     }
 
     public void registrarVenda(int quantidade) {
-        this.quantidadeEstoque -= quantidade;
+        if (quantidade <= 0) {
+            System.out.println("Venda inválida: Quantidade deve ser maior que 0");
+        } else if (quantidade > quantidadeEstoque) {
+            System.out.println("Venda inválida: Estoque insuficiente");
+        } else {
+            quantidadeEstoque -= quantidade;
+        }
     }
 }
