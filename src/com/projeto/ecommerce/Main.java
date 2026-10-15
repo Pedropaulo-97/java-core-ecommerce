@@ -11,15 +11,22 @@ public class Main {
         produtos[2] = new Roupa("Nike", "Camisa NOC", 299.99, 10, "M");
         produtos[3] = new Roupa("Adidas", "Camisa Dry", 199.99, 2, "GG");
 
+        int totalEstoque = 0;
+
         for (Produto p : produtos) {
             System.out.println(p.descricao());
             System.out.println("Produto Esgotado: " + p.esgotado());
             System.out.println("Ultimas Unidades: " + p.ultimasUnidades());
 
+            totalEstoque += p.getQuantidadeEstoque();
+
             if (p instanceof Avaliavel avaliavel) {
                 avaliavel.avaliar(5);
             }
         }
+
+        double mediaEstoque = (double) totalEstoque / produtos.length;
+        System.out.println("Média de Estoque: " + mediaEstoque);
 
         produtos[1].adicionarEstoque(8);
         System.out.println("Estoque ADI2000: " + produtos[1].getQuantidadeEstoque());
