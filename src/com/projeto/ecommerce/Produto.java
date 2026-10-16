@@ -1,7 +1,7 @@
 package com.projeto.ecommerce;
 
 
-import javax.swing.*;
+import java.math.BigDecimal;
 
 public abstract class Produto {
 
@@ -91,5 +91,14 @@ public abstract class Produto {
         } else {
             quantidadeEstoque -= quantidade;
         }
+    }
+
+    public BigDecimal calcularFrete(String regiao) {
+        return switch (regiao) {
+            case "SUL", "SUDESTE" -> new BigDecimal("15.00");
+            case "CENTRO-OESTE" -> new BigDecimal("25.00");
+            case "NORDESTE", "NORTE" -> new BigDecimal("35.00");
+            default -> new BigDecimal("40.00");
+        };
     }
 }

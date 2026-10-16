@@ -25,6 +25,14 @@ public class Main {
             }
         }
 
+        System.out.println("Frete SUL: " + produtos[0].calcularFrete("SUL"));
+
+        System.out.println("Frete CENTRO-OESTE: " + produtos[0].calcularFrete("CENTRO-OESTE"));
+
+        System.out.println("Frete NORDESTE: " + produtos[0].calcularFrete("NORDESTE"));
+
+        System.out.println("Frete EXTERIOR: " + produtos[0].calcularFrete(""));
+
         double mediaEstoque = (double) totalEstoque / produtos.length;
         System.out.println("Média de Estoque: " + mediaEstoque);
 
