@@ -1,17 +1,17 @@
 package com.projeto.ecommerce;
 
-
 import java.math.BigDecimal;
+
 
 public abstract class Produto {
 
     private String marca;
     private String modelo;
-    private double preco;
+    private BigDecimal preco;
     private int quantidadeEstoque;
 
 
-    public Produto(String marca, String modelo, double preco, int quantidadeEstoque) {
+    public Produto(String marca, String modelo, BigDecimal preco, int quantidadeEstoque) {
         setMarca(marca);
         setModelo(modelo);
         setPreco(preco);
@@ -19,7 +19,7 @@ public abstract class Produto {
     }
 
     public Produto(String marca, String modelo) {
-        this(marca, modelo, 0.01, 0);
+        this(marca, modelo, new BigDecimal("0.01"), 0);
     }
 
 
@@ -41,12 +41,12 @@ public abstract class Produto {
     }
 
 
-    public double getPreco() {
+    public BigDecimal getPreco() {
         return preco;
     }
 
-    public void setPreco(double preco) {
-        if (preco <= 0) {
+    public void setPreco(BigDecimal preco) {
+        if (preco.compareTo(BigDecimal.ZERO) <= 0) {
             System.out.println("Erro: Preço não pode ser zero ou negativo");
             return;
         }

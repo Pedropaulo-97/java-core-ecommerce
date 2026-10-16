@@ -1,10 +1,12 @@
 package com.projeto.ecommerce;
 
+import java.math.BigDecimal;
+
 public class Tenis extends Produto implements Avaliavel {
 
     private int numeracao;
 
-    public Tenis(String marca, String modelo, double preco, int quantidadeEstoque, int numeracao) {
+    public Tenis(String marca, String modelo, BigDecimal preco, int quantidadeEstoque, int numeracao) {
         super(marca, modelo, preco, quantidadeEstoque);
         setNumeracao(numeracao);
     }

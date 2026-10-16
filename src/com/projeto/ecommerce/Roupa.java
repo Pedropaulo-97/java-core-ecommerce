@@ -1,11 +1,13 @@
 package com.projeto.ecommerce;
 
 
+import java.math.BigDecimal;
+
 public class Roupa extends Produto implements Avaliavel {
 
     private String tamanho;
 
-    public Roupa(String marca, String modelo, double preco, int quantidadeEstoque, String tamanho) {
+    public Roupa(String marca, String modelo, BigDecimal preco, int quantidadeEstoque, String tamanho) {
         super(marca, modelo, preco, quantidadeEstoque);
         setTamanho(tamanho);
     }
