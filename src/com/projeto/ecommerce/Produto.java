@@ -1,6 +1,7 @@
 package com.projeto.ecommerce;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 
 public abstract class Produto {
@@ -50,7 +51,7 @@ public abstract class Produto {
             System.out.println("Erro: Preço não pode ser zero ou negativo");
             return;
         }
-        this.preco = preco;
+        this.preco = preco.setScale(2, RoundingMode.HALF_UP);
     }
 
     public int getQuantidadeEstoque() {
@@ -100,5 +101,18 @@ public abstract class Produto {
             case "NORDESTE", "NORTE" -> new BigDecimal("35.00");
             default -> new BigDecimal("40.00");
         };
+    }
+
+    public void imprimirParcelas(int numeroParcelas) {
+        if (numeroParcelas <= 0) {
+            System.out.println("Número de parcelas inválido");
+            return;
+        }
+        BigDecimal valorParcela = preco.divide(BigDecimal.valueOf(numeroParcelas), 2, RoundingMode.HALF_UP);
+        for (int i = 1; i <= numeroParcelas - 1; i++) {
+            System.out.println("Parcela " + i + ": " + valorParcela);
+        }
+        BigDecimal ultimaParcela = preco.subtract(valorParcela.multiply(BigDecimal.valueOf(numeroParcelas - 1)));
+        System.out.println("Parcela " + numeroParcelas + ": " + ultimaParcela);
     }
 }
