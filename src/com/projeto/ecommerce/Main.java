@@ -45,5 +45,7 @@ public class Main {
         System.out.println("Estoque Camisa Dry: " + produtos[3].getQuantidadeEstoque());
 
         produtos[0].imprimirParcelas(4);
+
+        produtos[1].repor(5, 20);
     }
 }

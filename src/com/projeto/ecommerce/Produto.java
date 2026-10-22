@@ -115,4 +115,16 @@ public abstract class Produto {
         BigDecimal ultimaParcela = preco.subtract(valorParcela.multiply(BigDecimal.valueOf(numeroParcelas - 1)));
         System.out.println("Parcela " + numeroParcelas + ": " + ultimaParcela);
     }
+
+    public void repor(int lote, int estoqueMinimo) {
+
+        if (lote <= 0) {
+            System.out.println("Lote inválido");
+            return;
+        }
+        while (quantidadeEstoque < estoqueMinimo) {
+            quantidadeEstoque += lote;
+        }
+        System.out.println("Estoque reposto: " + quantidadeEstoque);
+    }
 }
